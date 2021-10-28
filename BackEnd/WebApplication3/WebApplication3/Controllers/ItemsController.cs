@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication2.Models;
 using WebApplication2.Models.Response;
+using ZaloDotNetSDK;
+using ZaloCSharpSDK;
 
 namespace WebApplication2.Controllers
 {
@@ -50,6 +52,7 @@ namespace WebApplication2.Controllers
         [HttpGet("getwithID/{id}")]
         public IEnumerable<ItemRes> GetwithID([FromRoute] int id)
         {
+            ZaloAppInfo appInfo = new Zalo3rdAppInfo(myIDAPP)
             var item_get = _context.DbItems.Where(x => x.ItemID == id).Select(
                 x => new ItemRes()
                 {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "i5OktbaCjHHW7F/KRsDK3aU3SONGKlhv8KXT5WA4P08pmusYnvFxkwwwsnuy0ZJjlRHeKNVO0+i96HL3YkCCRw==",
+  "dgSpecHash": "eIKArUtvoU/aQRp7Tg2SDXBeCpoRvkK8fKdoy+XjTdcPHrRPw5MxqWBNxiupUipeg3dRTzUNiWhugq80f5lClA==",
   "success": true,
   "projectFilePath": "C:\\Users\\14147\\Desktop\\Create new .NET mvc v7\\Create-New-Dot-Net-MVC\\BackEnd\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
   "expectedPackageFiles": [
@@ -108,7 +108,8 @@
     "C:\\Users\\14147\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\14147\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\14147\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\14147\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\14147\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\14147\\.nuget\\packages\\vng.zalo.zalodotnetsdk\\1.1.6\\vng.zalo.zalodotnetsdk.1.1.6.nupkg.sha512"
   ],
   "logs": [
     {
@@ -167,6 +168,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Web.Infrastructure",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'vng.zalo.ZaloDotNetSDK 1.1.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "vng.zalo.ZaloDotNetSDK",
       "targetGraphs": [
         "net5.0"
       ]

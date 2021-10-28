@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="vng.zalo.ZaloDotNetSDK" Version="1.1.6" />
   </ItemGroup>
 
 </Project>
