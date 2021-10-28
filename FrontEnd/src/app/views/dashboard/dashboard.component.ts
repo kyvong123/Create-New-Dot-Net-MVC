@@ -7,14 +7,16 @@ import { Item } from '../models/Item.class';
 import {Response} from '@angular/http';
 import { DataStateChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
 import { process, State } from "@progress/kendo-data-query";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: 'dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  providers:[ToastrService]
 })
 export class DashboardComponent implements OnInit {
  
-  constructor(private service: ItemService){}
+  constructor(private service: ItemService, private toastr:ToastrService){}
   loading: boolean = false;
   items: Object;
   thunghiem:string = '';
@@ -27,32 +29,12 @@ export class DashboardComponent implements OnInit {
     this.loading = true;
     this.service.getItem().subscribe(x =>{
       
-      var data2 = [
-        {
-          id: 1,
-          name: "Leanne Graham",
-          username: "Bret",
-          email: "Sincere@april.biz"
-        },
-        {
-          id: 2,
-          name: "Ervin Howell",
-          username: "Antonette",
-          email: "Shanna@melissa.tv"
-        },
-        
-        // ... list of items
-        
-        {
-          id: 11,
-          name: "Nicholas DuBuque",
-          username: "Nicholas.Stanton",
-          email: "Rey.Padberg@rosamond.biz"
-        }
-      ];
       this.data = [x]
       this.data = this.data[0]
       this.settings = {
+        add:{
+          create:true
+        },
         columns: {
           itemID: {
             title: 'Item ID'
@@ -69,14 +51,19 @@ export class DashboardComponent implements OnInit {
           note: {
             title: 'Note'
           },
-          
-          
-        }
+        },
+        
       };
     });
-    
-    
   }
+
+  printMessage(event){
+    this.toastr.success('Tao item thanh cong !','Item da duoc khoi tao');
+    console.log('tao thanh cong')
+    return true
+  }
+
+
 
 
 

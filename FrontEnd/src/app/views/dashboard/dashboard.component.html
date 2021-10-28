@@ -4,7 +4,7 @@
       <li *ngFor="let item of items">
         {{item.itemName}}
       </li>
-      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+      <ng2-smart-table [settings]="settings" mode="external" (create)="printMessage($event)"  [source]="data"></ng2-smart-table>
 
 
     </div>

@@ -12,6 +12,7 @@ import { GridModule } from "@progress/kendo-angular-grid";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ToastrModule } from 'ngx-toastr';
 // import {TableModule} from 'primeng/table';
 
 @NgModule({
@@ -21,6 +22,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     ChartsModule,
     CommonModule,
     GridModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    }),
     // BrowserAnimationsModule,
     HttpClientModule,
     // TableModule,
