@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,7 @@ namespace WebApplication2.Controllers
         }
 
         [HttpGet]
+        //[EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public IEnumerable<ItemRes> GetItems()
         {
             return _context.DbItems;

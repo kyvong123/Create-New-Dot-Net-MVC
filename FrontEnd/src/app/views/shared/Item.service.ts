@@ -22,10 +22,12 @@ export class ItemService {
     getItem(){
         let httpOptions = {
             headers: new HttpHeaders({
-                'Content-Type': 'application/json','No-Auth':'True'
-            })
+                'Content-Type': 'application/json','No-Auth':'True',
+                'Accept':'application/json','Access-Control-Allow-Origin':'https://localhost:44300/',
+                'Access-Control-Allow-Credentials':'true'
+          })
         }
-        return this.http.get('https://localhost:44368/api/Items',httpOptions);
+        return this.http.get('https://localhost:44300/api/Items',httpOptions);
     }
 
 }

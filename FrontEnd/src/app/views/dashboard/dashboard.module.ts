@@ -6,12 +6,17 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+// import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
     FormsModule,
     DashboardRoutingModule,
     ChartsModule,
+    CommonModule,
+    // TableModule,
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],

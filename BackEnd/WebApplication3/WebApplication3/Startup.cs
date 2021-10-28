@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using WebApplication2.Models;
 
@@ -31,9 +32,16 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             IServiceCollection serviceCollection = services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("*").AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
+
+            });
+
 
             services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson(
                options =>
@@ -43,12 +51,18 @@ namespace WebApplication3
                }
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("*").AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
+            
+            services.AddHttpClient("localhost:4200").ConfigurePrimaryHttpMessageHandler(
+                () =>new HttpClientHandler { 
+                    ClientCertificateOptions = ClientCertificateOption.Manual,
+                    ServerCertificateCustomValidationCallback = 
+                    (httpRequestMessage, cert, cetChain, policyErrors) =>
+                    {
+                        return true;
+                    }
+                });
 
-            });
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,28 +72,9 @@ namespace WebApplication3
             {
                 app.UseDeveloperExceptionPage();
             }
-            //else
-            //{
-            //    app.UseExceptionHandler("/Home/Error");
-            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            //    app.UseHsts();
-            //}
-            //app.UseHttpsRedirection();
-            //app.UseStaticFiles();
-
-            //app.UseRouting();
-
-            //app.UseAuthorization();
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller=Home}/{action=Index}/{id?}");
-            //});
-            //app.UseHttpsRedirection();
+            
             app.UseRouting();
-            app.UseCors("AllowSpicificOrigin");
+            app.UseCors("AllowSpecificOrigin");
             
             app.UseMvc(routes =>
             {

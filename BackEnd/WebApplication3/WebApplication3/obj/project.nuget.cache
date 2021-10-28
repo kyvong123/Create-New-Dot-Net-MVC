@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oe2eQEeJ8EmzE/Grzd5rFnxjQFWw1Vl+hSTO8sb9qYHPQs0ZRgwP2WzYmIXKeUURiNdFI8bg4b6rYa+ByXTPHA==",
+  "dgSpecHash": "327C7/gKk6BwEHWKvBjiFYPkco0iJl8UnGhY1+rVLbh1TBISZPV+m+E9OuB+XsuUderXGbb3R16sz0VC5XsFOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\14147\\Desktop\\CreateNewDotNetMVC\\Create-New-Dot-Net-MVC\\BackEnd\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
+  "projectFilePath": "C:\\Users\\14147\\Desktop\\CreateNew DotNET mvc fixed SSL\\Create-New-Dot-Net-MVC\\BackEnd\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\14147\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\14147\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",

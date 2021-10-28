@@ -12,18 +12,17 @@ import {Response} from '@angular/http';
 export class DashboardComponent implements OnInit {
   constructor(private service: ItemService){}
   loading: boolean = false;
-  items: Item[] = [];
-
+  items: Object;
+  thunghiem:string = '';
   ngOnInit(): void {
     this.loading = true;
-    this.service.getItem().pipe(map((data:Response)=>{
-      return data.json() as Item[];
-    })).toPromise().then(
-      x =>{
-        this.items = x;
-        this.items.reverse();
-        this.loading = false;
-      }
-    )
+    this.service.getItem().subscribe(x =>{
+      let a = x;
+      let b = x;
+      let so = x[0].itemName;
+      this.items = x;
+      let c = x;
+    });
+    
   }
 }
