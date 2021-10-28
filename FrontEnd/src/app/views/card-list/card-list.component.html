@@ -1,0 +1,103 @@
+<div class="card" *ngIf="!authService.roleMatch(['Admin'])">
+    <div class="col-12 offset-s3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://previews.123rf.com/images/arcady31/arcady311101/arcady31110100005/8623333-access-denied-stamp.jpg" style="height:500px;width:100%;">
+  
+        </div>
+        <div class="card-content">
+          <span class="card-title" style="color:#039be5">403 - ACCESS DENIED</span>
+          <p>You don't have the permission to access this resource.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="card" *ngIf="authService.roleMatch(['Admin'])">
+    <p-table #dt1 [value]="universities" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+	[rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-universitys p-datatable-gridlines"
+	[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+	[globalFilterFields]="['name','country','alpha_two_code', 'domains','web_pages']">
+	<ng-template pTemplate="caption">
+		<div class="p-d-flex">
+			<span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+            </span>
+		</div>
+	</ng-template>
+	<ng-template pTemplate="header">
+		<tr>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Name
+					<!-- <p-columnFilter type="text" field="name" display="menu"></p-columnFilter> -->
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Country
+					<!-- <p-columnFilter type="text" field="country" display="menu"></p-columnFilter> -->
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Alpha Two Code
+					<!-- <p-columnFilter type="text" field="alpha_two_code" display="menu"></p-columnFilter> -->
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Domains
+					<!-- <p-columnFilter type="date" field="domains" display="menu"></p-columnFilter> -->
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Web Pages
+					<!-- <p-columnFilter type="numeric" field="web_pages" display="menu" currency="USD"></p-columnFilter> -->
+				</div>
+			</th>		
+			<!-- <th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Add Favorite Universities
+					<p-columnFilter type="numeric" field="web_pages" display="menu" currency="USD"></p-columnFilter>
+				</div>
+			</th>		 -->
+		</tr>
+        
+	</ng-template>
+	<ng-template pTemplate="body" let-university>
+		<tr>
+			<td>
+				{{university.name}}
+			</td>
+			<td>
+				<span class="image-text">{{university.country}}</span>
+			</td>
+			<td>
+				<span class="image-text">{{university.alpha_two_code}}</span>
+			</td>
+			<td>
+				{{university.domains}}
+			</td>
+			<td>
+				{{university.web_pages}}
+			</td>
+			<!-- <td>
+				<button  [hidden]="CheckExisted($event,university)" pButton type="button" (click)="AddFavorite($event,university)" class="p-button-raised p-button-rounded p-button-success">&nbsp;&nbsp;&nbsp;Add University&nbsp;&nbsp;&nbsp;</button>
+				<button [hidden]="!CheckExisted($event,university)" pButton type="button" (click)="RemoveFavorite($event,university)" class="p-button-raised p-button-rounded p-button-danger">Remove University</button>	
+			</td> -->
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="emptymessage">
+		<tr>
+			<td colspan="7">No universitys found.</td>
+		</tr>
+	</ng-template>
+</p-table>
+
+
+        
+
+</div>

@@ -5,8 +5,8 @@ import { ItemService } from '../shared/Item.service';
 import {map} from 'rxjs/operators';
 import { Item } from '../models/Item.class';
 import {Response} from '@angular/http';
-import { DataStateChangeEvent, GridDataResult } from '@progress/kendo-angular-grid';
-import { process, State } from "@progress/kendo-data-query";
+
+
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   items: Object;
   thunghiem:string = '';
 
-  public gridData: GridDataResult; 
+
   data = [];
   settings = {}
 

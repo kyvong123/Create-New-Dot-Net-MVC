@@ -8,10 +8,10 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { GridModule } from "@progress/kendo-angular-grid";
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 import { ToastrModule } from 'ngx-toastr';
 // import {TableModule} from 'primeng/table';
 
@@ -21,7 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     DashboardRoutingModule,
     ChartsModule,
     CommonModule,
-    GridModule,
+
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     }),
@@ -29,7 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     // TableModule,
     BsDropdownModule,
-    Ng2SmartTableModule,
+
     ButtonsModule.forRoot()
   ],
   declarations: [ DashboardComponent ]

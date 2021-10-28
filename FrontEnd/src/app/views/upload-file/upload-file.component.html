@@ -1,0 +1,17 @@
+<p-toast></p-toast>
+
+<div class="card">
+    <h5>Advanced</h5>
+    <p-fileUpload name="files" [headers]="hd" (onUpload)="onUpload($event)"
+    customUpload="true"
+    (uploadHandler)="onSend($event)"
+    multiple="multiple" accept="image/*" maxFileSize="1000000">
+            <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                </ul>
+            </ng-template>
+    </p-fileUpload>
+
+    
+</div>
