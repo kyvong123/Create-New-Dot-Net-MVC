@@ -24,6 +24,10 @@
               "node_modules/flag-icon-css/css/flag-icon.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/simple-line-icons/dist/styles/simple-line-icons.css",
+              "http://unpkg.com/@progress/kendo-theme-material/dist/all.css",
+              "http://unpkg.com/@progress/kendo-theme-bootstrap/dist/all.css",
+              "http://unpkg.com/@progress/kendo-theme-default/dist/all.css",
+              "node_modules/@progress/kendo-theme-default/dist/all.css",
               "src/scss/style.scss"
             ],
             "stylePreprocessorOptions": {
@@ -92,6 +96,10 @@
               "node_modules/flag-icon-css/css/flag-icon.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/simple-line-icons/dist/styles/simple-line-icons.css",
+              "http://unpkg.com/@progress/kendo-theme-material/dist/all.css",
+              "http://unpkg.com/@progress/kendo-theme-bootstrap/dist/all.css",
+              "http://unpkg.com/@progress/kendo-theme-default/dist/all.css",
+              "node_modules/@progress/kendo-theme-default/dist/all.css",
               "src/scss/style.scss"
             ],
             "stylePreprocessorOptions": {

@@ -8,6 +8,10 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { GridModule } from "@progress/kendo-angular-grid";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from "@angular/common/http";
+
 // import {TableModule} from 'primeng/table';
 
 @NgModule({
@@ -16,6 +20,9 @@ import { CommonModule } from '@angular/common';
     DashboardRoutingModule,
     ChartsModule,
     CommonModule,
+    GridModule,
+    // BrowserAnimationsModule,
+    HttpClientModule,
     // TableModule,
     BsDropdownModule,
     ButtonsModule.forRoot()
