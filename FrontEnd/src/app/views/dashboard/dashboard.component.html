@@ -1,10 +1,67 @@
 <div class="card" >
   <div class="col-12 offset-s3">
     <div class="card">
-      <li *ngFor="let item of items">
-        {{item.itemName}}
-      </li>
-      
+      <p-toast></p-toast>
+      <p-table [value]="datas">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Note</th>
+                <th style="width:8rem"></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data let-editing="editing">
+            <tr [pEditableRow]="data">
+                <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="text" [(ngModel)]="data.itemID">
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{data.itemID}}
+                      </ng-template>
+                  </p-cellEditor>
+                </td>
+                <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="text" [(ngModel)]="data.itemName" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{data.itemName}}
+                      </ng-template>
+                  </p-cellEditor>
+                </td>
+                <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="text" [(ngModel)]="data.description" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{data.description}}
+                      </ng-template>
+                  </p-cellEditor>
+                </td>
+                <td pEditableColumn>
+                  <p-cellEditor>
+                      <ng-template pTemplate="input">
+                          <input pInputText type="text" [(ngModel)]="data.note" required>
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                          {{data.note}}
+                      </ng-template>
+                  </p-cellEditor>
+                </td>
+                <td style="text-align:center">
+                  <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit($event,item)" class="p-button-rounded p-button-text"></button>
+                  <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(product)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                  <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(product, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+              </td>
+            </tr>
+        </ng-template>
+    </p-table>
 
 
     </div>

@@ -5,6 +5,7 @@ import { ItemService } from '../shared/Item.service';
 import {map} from 'rxjs/operators';
 import { Item } from '../models/Item.class';
 import {Response} from '@angular/http';
+import {MessageService} from 'primeng/api';
 
 
 import { ToastrService } from 'ngx-toastr';
@@ -12,25 +13,27 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   templateUrl: 'dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers:[ToastrService]
+  providers: [MessageService]
 })
 export class DashboardComponent implements OnInit {
  
-  constructor(private service: ItemService, private toastr:ToastrService){}
+  constructor(private messageService: MessageService,private service: ItemService){}
   loading: boolean = false;
   items: Object;
   thunghiem:string = '';
 
 
-  data = [];
+  datas = [];
   settings = {}
+
+  clonedProducts: { [s: string]: Item; } = {};
 
   ngOnInit(): void {
     this.loading = true;
     this.service.getItem().subscribe(x =>{
       
-      this.data = [x]
-      this.data = this.data[0]
+      this.datas = [x]
+      this.datas = this.datas[0]
       this.settings = {
         add:{
           create:true
@@ -57,8 +60,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+
+  onRowEditInit(event,item: Item) {
+    // this.clonedProducts[item.ItemID] = {...item};
+    this.messageService.add({severity:'success',summary:'Đăng nhập thành công!', detail: 'bạn đã đăng nhập vào hệ thống'});
+    
+    let a = event;
+  }
+
+
   printMessage(event){
-    this.toastr.success('Tao item thanh cong !','Item da duoc khoi tao');
+    // this.toastr.success('Tao item thanh cong !','Item da duoc khoi tao');
     console.log('tao thanh cong')
     return true
   }
