@@ -13,39 +13,73 @@ import { process, State } from "@progress/kendo-data-query";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  public state: State = {
-    skip: 0,
-    take: 5,
-
-    // Initial filter descriptor
-    filter: {
-      logic: "and",
-      filters: [{ field: "itemName", operator: "contains", value: "" }],
-    },
-  };
+ 
   constructor(private service: ItemService){}
   loading: boolean = false;
   items: Object;
   thunghiem:string = '';
 
   public gridData: GridDataResult; 
-  
+  data = [];
+  settings = {}
+
   ngOnInit(): void {
     this.loading = true;
     this.service.getItem().subscribe(x =>{
-      let a = x;
-      let b = x;
-      let so = x[0].itemName;
-      this.items = x;
-      let c = x;
-      this.gridData = process([this.items], this.state);
-      let d = [this.items];
+      
+      var data2 = [
+        {
+          id: 1,
+          name: "Leanne Graham",
+          username: "Bret",
+          email: "Sincere@april.biz"
+        },
+        {
+          id: 2,
+          name: "Ervin Howell",
+          username: "Antonette",
+          email: "Shanna@melissa.tv"
+        },
+        
+        // ... list of items
+        
+        {
+          id: 11,
+          name: "Nicholas DuBuque",
+          username: "Nicholas.Stanton",
+          email: "Rey.Padberg@rosamond.biz"
+        }
+      ];
+      this.data = [x]
+      this.data = this.data[0]
+      this.settings = {
+        columns: {
+          itemID: {
+            title: 'Item ID'
+          },
+          itemName: {
+            title: 'Item Name'
+          },
+          itemStatus:{
+            title: 'Item Status'
+          },
+          description: {
+            title: 'Description'
+          },
+          note: {
+            title: 'Note'
+          },
+          
+          
+        }
+      };
     });
+    
     
   }
 
-  public dataStateChange(state: DataStateChangeEvent): void {
-    this.state = state;
-    this.gridData = process([this.items], this.state);
-  }
+
+
+
+  
 }

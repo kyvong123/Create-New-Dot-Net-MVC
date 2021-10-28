@@ -4,46 +4,8 @@
       <li *ngFor="let item of items">
         {{item.itemName}}
       </li>
-      
-      <kendo-grid
-      [data]="gridData"
-      [pageSize]="state.take"
-      [skip]="state.skip"
-      [sort]="state.sort"
-      [filter]="state.filter"
-      [sortable]="true"
-      [pageable]="true"
-      [filterable]="true"
-      (dataStateChange)="dataStateChange($event)"
-    >
-      <kendo-grid-column
-        field="itemID"
-        title="Item ID"
-        width="40"
-        [filterable]="false"
-      >
-      </kendo-grid-column>
-      <kendo-grid-column 
-      field="itemName" 
-      title="Item Name">
-      </kendo-grid-column>
-      <kendo-grid-column
-        field="description"
-        title="Description"
-        width="240"
-        filter="date"
-        format="{0:d}"
-      >
-      </kendo-grid-column>
-      <kendo-grid-column
-        field="note"
-        title="Note"
-        width="180"
-        filter="numeric"
-        format="{0:c}"
-      >
-      </kendo-grid-column>
-    </kendo-grid>
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+
 
     </div>
   </div>

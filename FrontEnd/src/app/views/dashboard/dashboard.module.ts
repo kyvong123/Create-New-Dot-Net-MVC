@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { GridModule } from "@progress/kendo-angular-grid";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
-
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 // import {TableModule} from 'primeng/table';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     // TableModule,
     BsDropdownModule,
+    Ng2SmartTableModule,
     ButtonsModule.forRoot()
   ],
   declarations: [ DashboardComponent ]
