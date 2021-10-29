@@ -61,16 +61,21 @@ namespace WebApplication2.Controllers
             ZaloAppInfo appInfo = new ZaloAppInfo(301424487126965538, "JbLSQ37IGgWLAvJXYFb6", "https://developers.zalo.me/app/301424487126965538");
             ZaloAppClient appClient = new ZaloAppClient(appInfo);
             string loginUrl = appClient.getLoginUrl();
-            string code = "JbLSQ37IGgWLAvJXYFb6";
+            string code = "301424487126965538";
             JObject token = appClient.getAccessToken(code);
-            string accessToken = "0Z6xMu5KWp87FRvUXrgDDG0-j52SGezUUtpsOOfOZqHGMhDjbKRBL1D5ac_PGkrzNKECIPr-iNfwJeftbsRkMKi3rMUwOx0NJmJeFyeGYHSU0Cm9doQs7s4UpG6XBlPkAZkCLCahz7anI8XEu5JaTWjClKRGViCYLa60Ih1cxbuxOPT1s07lBrrfWnUg3EvwIMoILPb8htb_Qv96W0tASaWJg5QFAEbSRnUNU9eYnrrfHFjIc260K50rubgsCBi_F37M3Dm6aISi2Am0nZhnCoHIcY3QKgLC6pV7INIoKGfTWqw2DW";
+            string accessToken = "whZs2vQ7HJZdjlCBaej3F-wm-0U4p096cPBITRZC61x9jFDss90AD_3IssBHWmi5_-dlOFYDFKtTy8O3qvTaHj3kiGJUaNH2tA21Ak_QKLhiX9G2uk95LE-Abtdfy20ixuFBMFtfPJVugijjySeWDFcnrL7mmGGOXvBnQxBu4mUici5AhyHlBgsRYrxV_4u8yvg4Q_tdOLlrguGpwvTlKiFMWIZ1Z4aGmkk6NEIlN2hfaEXQvzDVAEgIxd_NometflNcGQQwFncDrymXXkX-HvBObYkOwILkxulb1sn42OC0dPz6CW";
             //Hồ sơ
             JObject profile = appClient.getProfile(accessToken, "id");
             JObject profile2 = appClient.getProfile(accessToken, "name");
             //Bạn bè
             JObject friends = appClient.getFriends(accessToken, 0, 3, "name");
             //Gửi tin nhắn 
-            JObject sendMessage = appClient.sendMessage(accessToken, 1975963830901413353, "Tin nhắn này được gửi từ app", "https://developers.zalo.me/");
+            JObject sendMessage = appClient.sendMessage(accessToken, 8102535106693328633, "Tin nhắn này được gửi từ app", "https://developers.zalo.me/");
+
+            ZaloClient client = new ZaloClient(accessToken);
+            JObject result = client.getListFollower(0, 3);
+            JObject result2 = client.getProfileOfFollower("1975963830901413353");
+            JObject result3 = client.sendImageMessageToUserIdByUrl("8102535106693328633", "hinh anh", "https://binhminhdigital.com/StoreData/PageData/3429/Tim-hieu-ve-ban-quyen-hinh-anh%20(3).jpg");
 
             return CreatedAtAction("GetThemItem", new { id = itemres.ItemID }, itemres);
         }
